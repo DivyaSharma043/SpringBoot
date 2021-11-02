@@ -1,9 +1,6 @@
 package com.springcontextexample.springcontext;
 
-import com.springcontextexample.springcontext.mycontrollercontext.ConstructorInjectionController;
-import com.springcontextexample.springcontext.mycontrollercontext.MyController;
-import com.springcontextexample.springcontext.mycontrollercontext.PropertyInjectedController;
-import com.springcontextexample.springcontext.mycontrollercontext.SetterInjectorController;
+import com.springcontextexample.springcontext.mycontrollercontext.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,9 +14,13 @@ public class SpringcontextApplication {
 
 		ApplicationContext ctx = SpringApplication.run(SpringcontextApplication.class, args);
 
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello() );
+
 		MyController myController = (MyController) ctx.getBean("myController");
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+
+		System.out.println("----Primary Bean----");
+		System.out.println(myController.sayHello());
 
 		System.out.println("----PROPERTY----");
 

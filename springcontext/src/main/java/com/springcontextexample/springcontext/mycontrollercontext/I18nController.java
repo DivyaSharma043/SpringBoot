@@ -1,14 +1,15 @@
 package com.springcontextexample.springcontext.mycontrollercontext;
 
 import com.springcontextexample.springcontext.services.GreetingServices;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MyController {
+public class I18nController {
 
-    public final GreetingServices greetingServices;
+    private final GreetingServices greetingServices;
 
-    public MyController(GreetingServices greetingServices) {
+    public I18nController(@Qualifier("i18nService") GreetingServices greetingServices) {
         this.greetingServices = greetingServices;
     }
 
