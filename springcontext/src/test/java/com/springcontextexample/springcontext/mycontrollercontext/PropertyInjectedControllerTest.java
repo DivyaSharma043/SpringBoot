@@ -1,11 +1,8 @@
 package com.springcontextexample.springcontext.mycontrollercontext;
 
-import com.springcontextexample.springcontext.services.GreetingServices;
-import com.springcontextexample.springcontext.services.GreetingServicesImpl;
+import com.springcontextexample.springcontext.services.ConstructorInjectionServices;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PropertyInjectedControllerTest {
 PropertyInjectedController controller;
@@ -14,7 +11,7 @@ PropertyInjectedController controller;
     void setUp() {
         controller = new PropertyInjectedController();
 
-        controller.greetingServices=new GreetingServicesImpl();
+        controller.greetingServices=new ConstructorInjectionServices();
     }
 
     @Test
